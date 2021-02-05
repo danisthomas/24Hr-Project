@@ -1,5 +1,6 @@
 ﻿using _24Hr.Data;
 using _24Hr.Models;
+using _24Hr_Project.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,66 @@ namespace _24Hr.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        
+        public CommentDetail GetNoteById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Comments
+                        .Single(e => e.CommentId == id && e.CommentAuthor == _userId);
+                return
+                    new CommentDetail
+                    {
+                        CommentId = entity.CommentId,
+                        CommentCreatedUtc = entity.CommentCreatedUtc,
+                        CommentModifiedUTC = entity.CommentModifiedUtc
+                    };
+            }
+        }
+        public bool UpdateComment(CommentEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Comments
+                        .Single(e => e.CommentId == model.CommentId && e.CommentAuthor == _userId);
+                entity.CommentText = model.CommentText;
+                entity.CommentModifiedUtc = DateTimeOffset.UtcNow;
 
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public bool DeleteComment(int noteId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Comments
+                        .Single(e => e.CommentId == noteId && e.CommentAuthor == _userId);
+                ctx.Comments.Remove(entity);
+                return ctx.SaveChanges() == 1;
+            }
+        }
+        public IEnumerable<CommentNewList> GetNotes()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                  ctx
+                      .Comments
+                      .Where(e => e.CommentAuthor == _userId)
+                      .Select(
+                        e => new CommentNewList
+                        {
+                            CommentId = e.CommentId,
+                            CommentText = e.CommentText,
+                            CommentCreatedUTC = e.CommentCreatedUtc
+                        });
+                return query.ToArray();
+            }
+        }
     }
 }
