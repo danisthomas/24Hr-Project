@@ -25,6 +25,9 @@ namespace _24Hr.Data
         public string PostText { get; set; }
 
         public DateTimeOffset PostCreatedUtc { get; set; }
+
+        public DateTimeOffset? ModifiedUtc { get; set; }
+
         [Required]
         public Guid Author { get; set; }
 
