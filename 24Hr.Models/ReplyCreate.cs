@@ -5,23 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _24Hr.Data
+namespace _24Hr.Models
 {
-    public class Reply
+    public class ReplyCreate
     {
         public Guid OwnerId { get; set; }
-        [Key]
         [Required]
         public int ReplyId { get; set; }
-
         [Required]
         public string ReplyText { get; set; }
-
+       
+        [Display(Name = "Created")]
         public DateTimeOffset ReplyCreatedUtc { get; set; }
-
-        [Required]
-        public Guid Author { get; set; }
-
-
     }
 }
