@@ -23,7 +23,9 @@ namespace _24Hr.Data
         public virtual Reply Replies { get; set; }
 
         public DateTimeOffset CommentCreatedUtc { get; set; }
-        public DateTimeOffset CommentModifiedUtc { get; set; }
+
+        public Guid Author { get; set; }
+
 
     }
 }

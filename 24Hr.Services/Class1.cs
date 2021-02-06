@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _24Hr.Models
+namespace _24Hr.Services
 {
-    class CommentEdit
+    public class Class1
     {
     }
 }

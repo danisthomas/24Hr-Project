@@ -9,7 +9,6 @@ namespace _24Hr.Data
 {
     public class Reply
     {
-        public Guid OwnerId { get; set; }
         [Key]
         [Required]
         public int ReplyId { get; set; }
