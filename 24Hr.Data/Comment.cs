@@ -21,6 +21,9 @@ namespace _24Hr.Data
         public int ReplyId { get; set; }
 
         public virtual Reply Replies { get; set; }
+        [ForeignKey(nameof(Post))]
+        public int PostId { get; set; }
+        public virtual Post Posts { get; set; }
 
         public DateTimeOffset CommentCreatedUtc { get; set; }
         public DateTimeOffset CommentModifiedUtc { get; set; }

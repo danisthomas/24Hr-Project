@@ -81,7 +81,7 @@ namespace _24Hr.Services
                 var query =
                   ctx
                       .Comments
-                      .Where(e => e.Author == _userId)
+                      .Where(e => e.PostId == id)
                       .Select(
                         e => new CommentNewList
                         {
