@@ -17,5 +17,7 @@ namespace _24Hr.Models
        
         [Display(Name = "Created")]
         public DateTimeOffset ReplyCreatedUtc { get; set; }
+
+        public int CommentId { get; set; }
     }
 }
