@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
 namespace _24Hr.Models
 {
-    class CommentNewList
+    public class CommentNewList
     {
+        public int CommentId { get; set; }
+        public string CommentText { get; set; }
+        [Display(Name = "Created")]
+        public DateTimeOffset CommentCreatedUTC { get; set; }
     }
 }
