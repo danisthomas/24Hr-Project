@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace _24Hr.Data
     {
         public Guid OwnerId { get; set; }
         [Key]
-        [Required]
+        
         public int ReplyId { get; set; }
 
         [Required]
@@ -21,6 +22,11 @@ namespace _24Hr.Data
 
         [Required]
         public Guid Author { get; set; }
+
+        [ForeignKey(nameof(comment))]
+        public int CommentId { get; set; }
+
+        public virtual Comment comment { get; set; }
 
 
     }

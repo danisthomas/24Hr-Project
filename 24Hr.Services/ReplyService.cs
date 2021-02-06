@@ -26,7 +26,8 @@ namespace _24Hr.Services
                     OwnerId = _userId,
                     ReplyId = model.ReplyId,
                     ReplyText = model.ReplyText,
-                    ReplyCreatedUtc = DateTimeOffset.Now
+                    ReplyCreatedUtc = DateTimeOffset.Now,
+                    CommentId = model.CommentId,
                 };
 
             using (var ctx = new ApplicationDbContext())
@@ -35,19 +36,20 @@ namespace _24Hr.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        public IEnumerable<ReplyListItem> GetReplies()
+        public IEnumerable<ReplyListItem> GetReplies(int CommentId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
                         .Replies
-                        .Where(e => e.OwnerId == _userId)
+                        .Where(e => e.CommentId == CommentId)
                         .Select(
                             e =>
                                 new ReplyListItem
                                 {
                                     ReplyId = e.ReplyId,
+                                    CommentText=e.comment.CommentText,
                                     ReplyText = e.ReplyText,
                                     ReplyCreatedUtc = e.ReplyCreatedUtc
                                 }

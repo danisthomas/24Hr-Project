@@ -23,10 +23,10 @@ namespace _24Hr_Project.Controllers
                 return replyService;
             }
 
-            public IHttpActionResult Get()
+            public IHttpActionResult Get(int id)
             {
                 ReplyService replyService = CreateReplyService();
-                var replies = replyService.GetReplies();
+                var replies = replyService.GetReplies(id);
                 return Ok(replies);
             }
 

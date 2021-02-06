@@ -12,6 +12,7 @@ namespace _24Hr.Models
         public Guid OwnerId { get; set; }
 
         public int ReplyId { get; set; }
+        public string CommentText { get; set; }
         public string ReplyText { get; set; }
 
         [Display(Name = "Created")]

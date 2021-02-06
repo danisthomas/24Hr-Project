@@ -17,10 +17,14 @@ namespace _24Hr.Data
         [Required]
         public Guid CommentAuthor { get; set; }
 
-        [ForeignKey(nameof(Replies))]
-        public int ReplyId { get; set; }
+        //[ForeignKey(nameof(Replies))]
+        //public int? ReplyId { get; set; }
 
-        public virtual Reply Replies { get; set; }
+        //public virtual Reply Replies { get; set; }
+
+        [ForeignKey(nameof(Posts))]
+        public int PostId { get; set; }
+        public virtual Post Posts { get; set; }
 
         public DateTimeOffset CommentCreatedUtc { get; set; }
         public DateTimeOffset CommentModifiedUtc { get; set; }

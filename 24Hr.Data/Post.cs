@@ -14,10 +14,10 @@ namespace _24Hr.Data
         [Required]
         public int PostId { get; set; }
 
-        [ForeignKey(nameof(Comments))]
-        public int CommentId { get; set; }
+        //[ForeignKey(nameof(Comments))]
+        //public int CommentId { get; set; }
 
-        public virtual Comment Comments { get; set; }
+        //public virtual Comment Comments { get; set; }
 
         [Required]
         public string PostTitle { get; set; }
