@@ -8,11 +8,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace _24Hr.Models
 {
-    public class CommentNewList
+    public class CommentDetail
     {
         public int CommentId { get; set; }
-        public string CommentText { get; set; }
+
         [Display(Name = "Created")]
-        public DateTimeOffset CommentCreatedUTC { get; set; }
+        public DateTimeOffset CommentCreatedUtc { get; set; }
+        [Display(Name = "Modified")]
+        public DateTimeOffset? CommentModifiedUTC { get; set; }
     }
 }
