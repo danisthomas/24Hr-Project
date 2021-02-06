@@ -7,13 +7,13 @@ namespace _24Hr.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class addingModifiedUtc : IMigrationMetadata
+    public sealed partial class Test : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addingModifiedUtc));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Test));
         
         string IMigrationMetadata.Id
         {
-            get { return "202102051559532_addingModifiedUtc"; }
+            get { return "202102061658186_Test"; }
         }
         
         string IMigrationMetadata.Source

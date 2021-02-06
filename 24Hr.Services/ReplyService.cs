@@ -49,6 +49,7 @@ namespace _24Hr.Services
                                 new ReplyListItem
                                 {
                                     ReplyId = e.ReplyId,
+                                    CommentText=e.comment.CommentText,
                                     ReplyText = e.ReplyText,
                                     ReplyCreatedUtc = e.ReplyCreatedUtc
                                 }
