@@ -74,14 +74,14 @@ namespace _24Hr.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        public IEnumerable<CommentNewList> GetComments()
+        public IEnumerable<CommentNewList> GetComments(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                   ctx
                       .Comments
-                      .Where(e => e.CommentAuthor == _userId)
+                      .Where(e => e.Author == _userId)
                       .Select(
                         e => new CommentNewList
                         {
