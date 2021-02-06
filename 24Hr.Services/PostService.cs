@@ -48,7 +48,7 @@ namespace _24Hr.Services
                     {
                         PostId = e.PostId,
                         PostTitle = e.PostTitle,
-                        CommentId = e.CommentId,
+                        //CommentId = e.CommentId,
                         CreatedUtc = e.PostCreatedUtc
 
                     });

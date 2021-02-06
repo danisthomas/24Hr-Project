@@ -22,6 +22,7 @@ namespace _24Hr.Services
                 new Comment
                 {
                     CommentAuthor = _userId,
+                    PostId = model.PostId,
                     CommentText = model.CommentText,
                     CommentCreatedUtc = DateTimeOffset.Now
                 };
@@ -31,6 +32,7 @@ namespace _24Hr.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        
         public CommentDetail GetCommentById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -38,11 +40,13 @@ namespace _24Hr.Services
                 var entity =
                     ctx
                         .Comments
-                        .Single(e => e.CommentId == id && e.CommentAuthor == _userId);
+                        .Single(e => e.Posts.PostId == id && e.CommentAuthor == _userId);
                 return
                     new CommentDetail
                     {
                         CommentId = entity.CommentId,
+                        PostTitle = entity.Posts.PostTitle,
+                        CommentText=entity.CommentText,
                         CommentCreatedUtc = entity.CommentCreatedUtc,
                         CommentModifiedUTC = entity.CommentModifiedUtc
                     };
@@ -87,6 +91,7 @@ namespace _24Hr.Services
                         {
                             CommentId = e.CommentId,
                             CommentText = e.CommentText,
+                            PostTitle=e.Posts.PostTitle,
                             CommentCreatedUTC = e.CommentCreatedUtc
                         });
                 return query.ToArray();

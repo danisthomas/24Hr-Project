@@ -10,12 +10,12 @@ namespace _24Hr.Models
 {
     public class CommentCreate
     {
-        public int? CommentId { get; set; }
+        public int CommentId { get; set; }
         [Required, MaxLength(120, ErrorMessage = "You have exceeded the maximum character limit."),
             MinLength(2, ErrorMessage = "You must input more then two characters.")]
         public string CommentText { get; set; }
 
         public DateTimeOffset CommentCreatedUtc { get; set; }
-        public int? ReplyId { get; set; }
+        public int PostId { get; set; }
     }
 }

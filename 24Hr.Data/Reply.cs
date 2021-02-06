@@ -12,7 +12,7 @@ namespace _24Hr.Data
     {
         public Guid OwnerId { get; set; }
         [Key]
-        [Required]
+        
         public int ReplyId { get; set; }
 
         [Required]
@@ -23,7 +23,7 @@ namespace _24Hr.Data
         [Required]
         public Guid Author { get; set; }
 
-        [ForeignKey(nameof(Comment))]
+        [ForeignKey(nameof(comment))]
         public int CommentId { get; set; }
 
         public virtual Comment comment { get; set; }

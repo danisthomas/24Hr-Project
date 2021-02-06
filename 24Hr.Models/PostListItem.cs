@@ -15,10 +15,10 @@ namespace _24Hr.Models
 
         public string PostTitle { get; set; }
 
-        [ForeignKey(nameof(Comment))]
-        public int CommentId { get; set; }
+        //[ForeignKey(nameof(Comment))]
+        //public int CommentId { get; set; }
 
-        public virtual Comment Comment { get; set; }
+        //public virtual Comment Comment { get; set; }
 
         [Display(Name="Created")]
         public DateTimeOffset CreatedUtc { get; set; }
