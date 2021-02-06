@@ -14,5 +14,6 @@ namespace _24Hr.Models
         public string CommentText { get; set; }
         [Display(Name = "Created")]
         public DateTimeOffset CommentCreatedUTC { get; set; }
+        public int PostId { get; set; }
     }
 }
